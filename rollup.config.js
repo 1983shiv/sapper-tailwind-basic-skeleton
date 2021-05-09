@@ -66,10 +66,7 @@ export default {
 
 			!dev && terser({
 				module: true
-			}),
-			production && ghPages.publish('public', (err) => { 
-			console.log('published to github pages', err);
-		})
+			})
 		],
 
 		preserveEntrySignatures: false,
