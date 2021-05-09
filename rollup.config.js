@@ -8,11 +8,13 @@ import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
-import ghPages from 'gh-pages'
+// import ghPages from 'gh-pages'
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
+
+const production = !process.env.ROLLUP_WATCH;
 
 const onwarn = (warning, onwarn) =>
 	(warning.code === 'MISSING_EXPORT' && /'preload'/.test(warning.message)) ||
@@ -67,9 +69,9 @@ export default {
 			!dev && terser({
 				module: true
 			}),
-			production && ghPages.publish('public', (err) => { 
-			console.log('published to github pages', err);
-		})
+			// production && ghPages.publish('public', (err) => { 
+			// 	console.log('published to github pages', err);
+			// }),
 		],
 
 		preserveEntrySignatures: false,

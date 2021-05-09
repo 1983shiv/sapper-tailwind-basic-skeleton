@@ -1,10 +1,10 @@
 {
-  "name": "TODO",
-  "description": "TODO",
+  "name": "sapperblog",
+  "description": "building sapper blog using tailwindcss",
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev && postcss static/tailwind.css -o static/index.css -w",
-    "build": "sapper build --legacy && NODE_ENV=production postcss static/tailwind.css -o static/index.css",
+    "build": "postcss static/tailwind.css -o static/index.css && node ./scripts/gh-pages.js && sapper build --legacy",
     "export": "sapper export --legacy",
     "start": "node __sapper__/build"
   },
