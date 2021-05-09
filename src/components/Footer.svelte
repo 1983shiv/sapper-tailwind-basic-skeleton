@@ -112,8 +112,12 @@
       </a>
     </span>
   </div>
+  <!-- 59f359984854b82732ff8281 -->
   <SvelteTawkToChaTWidget
-    propertyId="5693205ca37c51511e7c1e17"
+    propertyId="59f359984854b82732ff8281"
     chatId="default"
   />
 </footer>
+
+<!--Start of Tawk.to Script-->
+<!-- https://embed.tawk.to/59f359984854b82732ff8281/default'/5693205ca37c51511e7c1e17; -->

@@ -1,7 +1,25 @@
-<svelte:head>
-  <title>About</title>
-</svelte:head>
+<script>
+  import SvelteSeo from "svelte-seo";
+</script>
 
+<SvelteSeo
+  title="About Us"
+  description="A short description goes here."
+  openGraph={{
+    title: "Open Graph Title",
+    description: "Open Graph Description",
+    url: "https://www.example.com/page",
+    type: "website",
+    images: [
+      {
+        url: "https://www.example.com/images/og-image.jpg",
+        width: 850,
+        height: 650,
+        alt: "Og Image Alt",
+      },
+    ],
+  }}
+/>
 <section class="text-gray-600 body-font overflow-hidden">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-wrap -m-12">

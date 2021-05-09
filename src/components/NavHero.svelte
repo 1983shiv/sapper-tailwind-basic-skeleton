@@ -1,3 +1,7 @@
+<script>
+  import Image from "svelte-image";
+</script>
+
 <div class="relative bg-white overflow-hidden">
   <div class="max-w-7xl mx-auto">
     <div
@@ -36,7 +40,7 @@
                 href="."
                 class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-pink-600 hover:bg-pink-700 md:py-4 md:text-lg md:px-10"
               >
-                Get started
+                Services
               </a>
             </div>
             <div class="mt-3 sm:mt-0 sm:ml-3">
@@ -44,7 +48,7 @@
                 href="."
                 class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-pink-700 bg-pink-100 hover:bg-pink-200 md:py-4 md:text-lg md:px-10"
               >
-                Live demo
+                Portfolio
               </a>
             </div>
           </div>
@@ -53,11 +57,7 @@
     </div>
   </div>
   <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-    <img
-      class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-      src="home-hero.jpg"
-      alt="HeroImage"
-    />
+    <Image src="home-hero.jpg" />
   </div>
 </div>
 

@@ -8,13 +8,18 @@ import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
-// import ghPages from 'gh-pages'
+import markdown from '@jackfranklin/rollup-plugin-markdown'
+import glob from 'rollup-plugin-glob'
+// import alias from '@rollup/plugin-alias'
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
-const production = !process.env.ROLLUP_WATCH;
+// const production = !process.env.ROLLUP_WATCH;
+// const aliases = {
+//   '@': path.resolve(__dirname, 'src')
+// }
 
 const onwarn = (warning, onwarn) =>
 	(warning.code === 'MISSING_EXPORT' && /'preload'/.test(warning.message)) ||
@@ -26,6 +31,8 @@ export default {
 		input: config.client.input(),
 		output: config.client.output(),
 		plugins: [
+			glob(),
+      markdown(),
 			replace({
 				preventAssignment: true,
 				values:{
@@ -82,6 +89,8 @@ export default {
 		input: config.server.input(),
 		output: config.server.output(),
 		plugins: [
+			glob(),
+      markdown(),
 			replace({
 				preventAssignment: true,
 				values:{
