@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev && postcss static/tailwind.css -o static/index.css -w",
-    "build": "sapper build --legacy && NODE_ENV=production postcss static/tailwind.css -o static/index.css",
+    "build": "sapper build --legacy && node ./scripts/gh-pages.js && NODE_ENV=production postcss static/tailwind.css -o static/index.css",
     "export": "sapper export --basepath sapperblog --legacy",
     "start": "node __sapper__/build",
     "deploy": "npm run export && node ./scripts/gh-pages.js"
