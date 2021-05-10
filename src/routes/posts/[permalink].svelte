@@ -1,7 +1,6 @@
 <script context="module">
   import { findPost } from "../../posts.js";
   import SvelteSeo from "svelte-seo";
-  import Image from "svelte-image";
   import { slugify } from "../../posts.js";
   export function preload(page) {
     return { post: findPost(page.params.permalink) };
@@ -41,14 +40,13 @@
     <h1
       class="text-2xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-2xl mb-8"
     >
-      <span class="block xl:inline">#</span>
       <span class="block text-pink-600 xl:inline">{post.title}</span>
     </h1>
     <div class="flex flex-wrap m-4">
       <Tags tags={post.tags} />
 
-      <div class="block">
-        <Image src={post.image} alt={post.title} />
+      <div class="block w-auto h-400">
+        <img src={post.image} alt={post.title} />
       </div>
       <div class="row">{@html post.html}</div>
     </div>

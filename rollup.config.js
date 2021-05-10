@@ -10,6 +10,8 @@ import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
 import markdown from '@jackfranklin/rollup-plugin-markdown'
 import glob from 'rollup-plugin-glob'
+import image from "svelte-image";
+
 // import alias from '@rollup/plugin-alias'
 
 const mode = process.env.NODE_ENV;
@@ -44,6 +46,43 @@ export default {
 				compilerOptions: {
 					dev,
 					hydratable: true
+				},
+				preprocess: {
+					...image({
+						optimizeAll: true, 
+						imgTagExtensions: ["jpg", "jpeg", "png", "gif","svg"],
+						componentExtensions: [],
+						inlineBelow: 20000, // inline all images in img tags below 10kb
+						compressionLevel: 8, // png quality level
+						quality: 90, // jpeg/webp quality level
+						tagName: "Image", // default component name
+						sizes: [400, 800, 1200], // array of sizes for srcset in pixels
+						// array of screen size breakpoints at which sizes above will be applied
+						breakpoints: [375, 768, 1024],
+						outputDir: "g/",
+						// should be ./static for Sapper and ./public for plain Svelte projects
+						publicDir: "./static/",
+						placeholder: "blur", // or "blur",
+						// WebP options [sharp docs](https://sharp.pixelplumbing.com/en/stable/api-output/#webp)
+						webpOptions: {
+							quality: 95,
+							lossless: false,
+							force: true
+						},
+						webp: true,
+						// Potrace options for SVG placeholder
+						trace: {
+							background: "#fff",
+							color: "#002fa7",
+							threshold: 120
+						},
+						// Wheter to download and optimize remote images loaded from a url
+						optimizeRemote: true,
+						processFolders: [],
+						processFoldersRecursively: false,
+						processFoldersExtensions: ["jpg", "jpeg", "png", "gif","svg"],
+						processFoldersSizes: false
+					}),
 				}
 			}),
 			url({

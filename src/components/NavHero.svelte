@@ -1,5 +1,6 @@
 <script>
-  import Image from "svelte-image";
+  // import Image from "svelte-image";
+  import Image from "../../node_modules/svelte-image/src/Image.svelte";
 </script>
 
 <div class="relative bg-white overflow-hidden">
