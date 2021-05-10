@@ -1,7 +1,5 @@
 <script>
   // import Image from "svelte-image";
-
-  import Image from "../../node_modules/svelte-image/src/Image.svelte";
 </script>
 
 <div class="relative bg-white overflow-hidden">
@@ -59,7 +57,8 @@
     </div>
   </div>
   <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-    <Image src="home-hero.jpg" alt="Hero Image" />
+    <!-- svelte-ignore a11y-img-redundant-alt -->
+    <img src="home-hero.jpg" alt="Hero Image" />
   </div>
 </div>
 
