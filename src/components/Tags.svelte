@@ -1,10 +1,13 @@
 <script>
-  export let tags
+  export let tags;
+  // console.log("tags", tags);
 </script>
 
-<nav>
+<nav class="flex flex-wrap">
   {#each tags as tag}
-    <a href="/tag/{tag}">#{tag}</a>
+    <span class="mx-1 bg-gray-50 rounded p-2"
+      ><a class="font-lg" href="/tag/{tag}">#{tag}</a></span
+    >
   {/each}
 </nav>
 

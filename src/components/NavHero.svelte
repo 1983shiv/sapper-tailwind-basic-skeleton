@@ -1,6 +1,6 @@
 <script>
   // import Image from "svelte-image";
-  import homehero from "images/homehero.jpg";
+
   import Image from "../../node_modules/svelte-image/src/Image.svelte";
 </script>
 
@@ -59,7 +59,7 @@
     </div>
   </div>
   <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-    <Image src={homehero} alt="Hero Image" />
+    <Image src="home-hero.jpg" alt="Hero Image" />
   </div>
 </div>
 

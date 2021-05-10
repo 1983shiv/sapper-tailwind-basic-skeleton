@@ -1,3 +1,5 @@
+// source : tagSet : https://www.geeksforgeeks.org/how-to-convert-set-to-array-in-javascript/
+
 import _ from 'lodash'
 import all from '../posts/*.md'
 
@@ -9,6 +11,20 @@ export const posts = _.chain(all)
 
 export function findPost(permalink) {
   return _.find(posts, {permalink})
+}
+
+export function findAllTag() {
+  let tagSet = new Set();
+  posts.map((post) => {
+    if (post.tags){
+      let data = Object.values(post.tags).toLocaleString().split(",");
+      // console.log('type of Data : ', typeof(data));
+      data.forEach( (el)=> {
+        return tagSet.add(el);
+      });
+    }
+  });
+  return Array.from(tagSet);
 }
 
 export function findByTag(tag) {
