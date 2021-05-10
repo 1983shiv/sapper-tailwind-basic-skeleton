@@ -9,6 +9,7 @@
 
 <script>
   import Tags from "../../components/Tags.svelte";
+  import Image from "svelte-image";
   export let post;
 </script>
 

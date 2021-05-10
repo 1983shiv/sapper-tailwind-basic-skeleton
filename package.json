@@ -6,6 +6,7 @@
     "tailwind": "postcss static/tailwind.css -o static/index.css",
     "dev": "sapper dev && postcss static/tailwind.css -o static/index.css -w",
     "build": "postcss static/tailwind.css -o static/index.css && node ./scripts/gh-pages.js && sapper build --legacy",
+    "buildtailwind": "tailwindcss build static/tailwind.css -o static/index.css && node ./scripts/gh-pages.js && sapper build --legacy",
     "export": "sapper export --basepath sapper-tailwind-basic-skeleton --legacy",
     "start": "node __sapper__/build",
     "deploy": "postcss static/tailwind.css -o static/index.css && npm run export && node ./scripts/gh-pages.js"
