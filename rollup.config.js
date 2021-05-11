@@ -11,8 +11,7 @@ import pkg from './package.json';
 import markdown from '@jackfranklin/rollup-plugin-markdown'
 import glob from 'rollup-plugin-glob'
 
-// import ghPages from 'gh-pages';
-
+// import ghpages from 'gh-pages';
 // import alias from '@rollup/plugin-alias'
 
 const mode = process.env.NODE_ENV;
@@ -20,9 +19,8 @@ const dev = mode === 'development';
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
 // const production = !process.env.ROLLUP_WATCH;
-// const aliases = {
-//   '@': path.resolve(__dirname, 'src')
-// }
+
+
 
 const onwarn = (warning, onwarn) =>
 	(warning.code === 'MISSING_EXPORT' && /'preload'/.test(warning.message)) ||
@@ -51,7 +49,7 @@ export default {
 			}),
 			url({
 				sourceDir: path.resolve(__dirname, 'src/node_modules/images'),
-				publicPath: '/client/'
+				publicPath: '/client/',
 			}),
 			resolve({
 				browser: true,
@@ -79,7 +77,7 @@ export default {
 			!dev && terser({
 				module: true
 			}),
-			// production && ghPages.publish('public', (err) => { 
+			// production && ghpages.publish('public', (err) => { 
 			// 	console.log('published to github pages', err);
 			// }),
 		],
